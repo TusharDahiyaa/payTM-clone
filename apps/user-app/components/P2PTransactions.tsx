@@ -7,12 +7,12 @@ export const P2PTransaction = ({
   sendTransactions: {
     time: Date;
     amount: number;
-    number: string;
+    name: string;
   }[];
   getTransactions: {
     time: Date;
     amount: number;
-    number: string;
+    name: string;
   }[];
 }) => {
   if (!sendTransactions.length && !getTransactions.length) {
@@ -36,7 +36,7 @@ export const P2PTransaction = ({
                 </div>
                 <div className="flex flex-col justify-center">
                   <div className="text-right">- Rs {t.amount / 100}</div>
-                  <div className="text-slate-600">Sent to {t.number}</div>
+                  <div className="text-slate-600">Sent to {t.name}</div>
                 </div>
               </div>
             ))}
@@ -59,9 +59,7 @@ export const P2PTransaction = ({
                   </div>
                   <div className="flex flex-col justify-center">
                     <div className="text-right">+ Rs {t.amount / 100}</div>
-                    <div className="text-slate-600">
-                      Received from {t.number}
-                    </div>
+                    <div className="text-slate-600">Received from {t.name}</div>
                   </div>
                 </div>
               ))}

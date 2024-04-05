@@ -13,7 +13,7 @@ export default async function () {
       include: {
         toUser: {
           select: {
-            number: true,
+            name: true,
           },
         },
       },
@@ -22,7 +22,7 @@ export default async function () {
     return txns.map((t) => ({
       time: t.timestamp,
       amount: t.amount,
-      number: t.toUser?.number || "",
+      name: t.toUser?.name || "",
     }));
   }
 
@@ -35,7 +35,7 @@ export default async function () {
       include: {
         fromUser: {
           select: {
-            number: true,
+            name: true,
           },
         },
       },
@@ -43,7 +43,7 @@ export default async function () {
     return txns.map((t) => ({
       time: t.timestamp,
       amount: t.amount,
-      number: t.fromUser?.number || "",
+      name: t.fromUser?.name || "",
     }));
   }
 

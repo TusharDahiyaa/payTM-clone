@@ -37,9 +37,9 @@ export function SendCard() {
                     Number(amount) * 100
                   );
                   if (response.success) {
+                    alert("Transaction successful");
                     setNumber("");
                     setAmount("");
-                    alert("Transaction successful");
                   } else {
                     alert(`Error: ${response?.message}`);
                   }
