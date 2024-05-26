@@ -21,7 +21,7 @@ export const authOptions = {
         },
         password: { label: "Password", type: "password", required: true },
       },
-      // TODO: User credentials type from next-aut
+      // TODO: User credentials type from next-auth
       async authorize(credentials: any) {
         // Do zod validation, OTP validation here
         const hashedPassword = await bcrypt.hash(credentials.password, 10);
@@ -68,7 +68,7 @@ export const authOptions = {
           return {
             id: user.id.toString(),
             name: user.name,
-            email: user.number,
+            phone: user.number,
           };
         } catch (e) {
           console.error(e);
