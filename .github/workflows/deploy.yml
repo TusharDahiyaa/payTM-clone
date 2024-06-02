@@ -24,10 +24,10 @@ jobs:
           context: .
           file: ./docker/Dockerfile.user
           push: true
-          tags: tushardahiya/paytm-main:latest # Replace with your Docker Hub username and repository
+          tags: tushardahiya/paytm_main:latest # Replace with your Docker Hub username and repository
 
       - name: Verify Pushed Image
-        run: docker pull tushardahiya/paytm-main:latest # Replace with your Docker Hub username and repository
+        run: docker pull tushardahiya/paytm_main:latest # Replace with your Docker Hub username and repository
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker pull tushardahiya/paytm-main:latest
-            sudo docker stop paytm-main || true
-            sudo docker rm paytm-main || true
-            sudo docker run -d --name tushardahiya/paytm-main -p 3005:3000 tushardahiya/paytm-main
+            sudo docker pull tushardahiya/paytm_main:latest
+            sudo docker stop paytm_main || true
+            sudo docker rm paytm_main || true
+            sudo docker run -d --name tushardahiya/paytm_main -p 3005:3000 tushardahiya/paytm_main
