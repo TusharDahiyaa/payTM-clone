@@ -35,8 +35,11 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script: | 
+          envs: NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }},JWT_SECRET=${{ secrets.JWT_SECRET }}
+          script: |
             sudo docker pull tushardahiya/paytm_main:latest
             sudo docker stop paytm_main || true
             sudo docker rm paytm_main || true
-            sudo docker run -d --name paytm_main -p 3005:3000 tushardahiya/paytm_main:latest
+            sudo docker run -d -p 3005:3000 \
+            -e NEXTAUTH_URL="${{ secrets.NEXTAUTH_URL }}" \
+            -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \ --name paytm_main -p 3005:3000 tushardahiya/paytm_main:latest
