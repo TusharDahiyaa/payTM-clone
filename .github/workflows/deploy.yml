@@ -35,7 +35,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          script: |
+          script: | 
             sudo docker pull tushardahiya/paytm_main:latest
             sudo docker stop paytm_main || true
             sudo docker rm paytm_main || true
