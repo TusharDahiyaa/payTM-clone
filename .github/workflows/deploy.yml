@@ -39,4 +39,4 @@ jobs:
             sudo docker pull tushardahiya/paytm_main:latest
             sudo docker stop paytm_main || true
             sudo docker rm paytm_main || true
-            sudo docker run -d --name tushardahiya/paytm_main -p 3005:3000 tushardahiya/paytm_main
+            sudo docker run -d --name paytm_main -p 3005:3000 tushardahiya/paytm_main:latest
