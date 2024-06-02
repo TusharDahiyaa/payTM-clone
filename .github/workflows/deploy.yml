@@ -43,4 +43,5 @@ jobs:
             sudo docker run -d \
             -e NEXTAUTH_URL="${{ secrets.NEXTAUTH_URL }}" \
             -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
+            -e DATABASE_URL="${{ secrets.DATABASE_URL}}" \
             --name paytm_main -p 3005:3000 tushardahiya/paytm_main:latest
