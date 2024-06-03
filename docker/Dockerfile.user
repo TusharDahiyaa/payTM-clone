@@ -17,4 +17,4 @@ RUN npm run db:generate
 RUN npm run build:user-app
 RUN npm run build:bank-webhook
 
-CMD ["./start.sh"]
+CMD ["bash", "/start_up.sh"]

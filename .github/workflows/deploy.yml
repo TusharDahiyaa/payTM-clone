@@ -39,8 +39,8 @@ jobs:
           script: |
             sudo docker pull tushardahiya/paytm_main:latest
             sudo docker stop paytm_main || true
-            sudo docker rm paytm_main || true
-            sudo docker run -d \
+            sudo docker rmi paytm_main || true
+            sudo docker run -d \  
             -e NEXTAUTH_URL="${{ secrets.NEXTAUTH_URL }}" \
             -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
             -e DATABASE_URL="${{ secrets.DATABASE_URL}}" \
