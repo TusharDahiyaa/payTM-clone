@@ -17,4 +17,7 @@ RUN npm run db:generate
 RUN npm run build:user-app
 RUN npm run build:bank-webhook
 
-CMD ["bash", "/start_up.sh"]
+# Make sure start.sh is executable
+RUN chmod +x start.sh
+
+CMD ["sh", "./start.sh"]
